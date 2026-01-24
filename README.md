@@ -45,5 +45,9 @@ pc.write_ply(destination="outputs/")
 - The output filename combines the image stem and model name.
 - Large images are resized so the longest side is 1024px.
 
+## Viewing the PLY
+You can view the generated `.ply` file in a browser using this online viewer:
+[https://imagetostl.com/view-ply-online#convert](https://imagetostl.com/view-ply-online#convert)
+
 ## License
 MIT.
