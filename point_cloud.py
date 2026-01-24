@@ -57,6 +57,7 @@ class PointCloud:
             task="depth-estimation",
             model=self.model,
             device=device,
+            image_processor_kwargs={"use_fast": True}
         )
 
         # depth map
@@ -138,7 +139,7 @@ class PointCloud:
         :param self: PointCloud object
         :param destination: output PLY file path location
         """
-        ply_path = destination + Path(self.image_path).stem + "_point_cloud.ply"
+        ply_path = destination + Path(self.image_path).stem + "".join(self.model.split("/")) + ".ply"
 
         n = self.backprojected_points.shape[0]
 
