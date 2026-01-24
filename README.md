@@ -2,6 +2,17 @@
 
 Generate simple point clouds from a single image using Hugging Face depth-estimation models.
 
+## Visualizations
+Input image and point cloud previews (animated GIFs) generated from `inputs/2.png`.
+
+| Input (`inputs/2.png`) | Intel/dpt-swinv2-tiny-256 | Intel/dpt-hybrid-midas |
+| --- | --- | --- |
+| <img src="inputs/2.png" width="320" alt="inputs/2.png" /> | <img src="visualizations/ImageToStl.com_2Inteldpt-swinv2-tiny-256.ply.gif" width="320" alt="Intel/dpt-swinv2-tiny-256" /> | <img src="visualizations/ImageToStl.com_2Inteldpt-hybrid-midas.ply.gif" width="320" alt="Intel/dpt-hybrid-midas" /> |
+
+| LiheYoung/depth-anything-small-hf | depth-anything/Depth-Anything-V2-Small-hf |
+| --- | --- |
+| <img src="visualizations/ImageToStl.com_2LiheYoungdepth-anything-small-hf.ply.gif" width="320" alt="LiheYoung/depth-anything-small-hf" /> | <img src="visualizations/ImageToStl.com_2depth-anythingDepth-Anything-V2-Small-hf.ply.gif" width="320" alt="depth-anything/Depth-Anything-V2-Small-hf" /> |
+
 ## What it does
 - Loads an RGB image
 - Estimates a depth map with a Hugging Face `depth-estimation` pipeline

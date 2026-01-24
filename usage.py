@@ -1,6 +1,6 @@
 from point_cloud import PointCloud
 
-image_path = "test.jpg"
+image_path = "2.png"
 
 # example models to test
 models_to_test = [
