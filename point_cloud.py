@@ -48,7 +48,7 @@ class PointCloud:
         :return: fx, fy, cx, cy, D where D is the depth map as a (H, W) NumPy array and fx, fy, cx, cy are camera intrinsics
         """
         h, w = self.rgb_image.shape[:2]
-        # TODO: make sure this can handle non-default models
+
         device = 0 if torch.cuda.is_available() else -1
         
         # hugging face "depth-estimation" pipeline returns a predicted depth tensor/map
@@ -109,9 +109,11 @@ class PointCloud:
         u, v = np.meshgrid(np.arange(w), np.arange(h))  # (H, W)
         
         # apply pinhole camera back-projection
-        Z = D
+        # image v grows downward, so negate Y to make +Y up in camera space
+        # Flip depth so the cloud faces the default viewer camera direction.
+        Z = -D
         X = (u - cx) * Z / fx
-        Y = (v - cy) * Z / fy
+        Y = -(v - cy) * Z / fy
 
         # stack X,Y,Z into (N, 3) point cloud where N = H * W
         xyz = np.stack((X, Y, Z), axis=-1).reshape(-1, 3)  # (H, W, 3)
